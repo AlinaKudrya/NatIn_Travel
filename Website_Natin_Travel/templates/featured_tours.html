@@ -1,0 +1,20 @@
+{% extends 'account.html' %}
+
+{% block title %} Аккаунт | Избранные туры {% endblock %}
+
+{% block content %}
+<table width="90%" align="center">
+    {% for featured_tour in featured_tours %}
+    {% if user.is_authenticated and user == featured_tour.username %}
+    <tr style="height: 7em; background-color: #ededed" align="center">
+        <td style="width: 10em;"> <img src="{{ featured_tour.tour.image.url }}" style="width: 10em"> </td>
+        <td> <a href="{% url 'tour_detail' pk=featured_tour.tour.pk %}">{{ featured_tour.tour.title }}</a> </td>
+        <td> {{ featured_tour.tour.price }}{{ featured_tour.tour.currency }} </td>
+        <td style="width: 3em">
+            <a href="{% url 'delete-featured-tour' pk=featured_tour.pk %}"> ❌ </a>
+        </td>
+    </tr>
+    {% endif %}
+    {% endfor %}
+</table>
+{% endblock %}

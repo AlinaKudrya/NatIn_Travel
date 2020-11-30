@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src='{% static "js/slideshow.js" %}'></script>
+    <link rel="stylesheet" href='{% static "css/styles.css" %}'/>
+    <title>
+        {% block title %}
+        Туристическое агентство НатИн трэвэл
+        {% endblock %}
+    </title>
+</head>
+
+<body>
+<div class="main-information" style="position: absolute; width: 100%; top:0.5em" align="center">
+    <div class="logo" style="display: inline-block; position: relative; left:-5em">
+        <img src="media/background/logo.png">
+    </div>
+    <div class="name" align="left">
+        <font color="#1102bd" size="4em"> Туристическое <br> агентство</font><br>
+        <font color="#1102bd" size="5em"> НатИн трэвэл </font>
+    </div>
+    <div class="addresses" align="center">
+        <font color="#1102bd">
+            <b>e-mail:</b> info@natin.by <br>
+            <b>Время работы:</b> пн-пт 10:00-18:00 <br>
+            <b>Адрес:</b> ул. Максима Богдановича, 129а, <br>офис 18
+        </font>
+    </div>
+    <div class="phones" style=" display: inline-block; position: relative; top:-1em; left: 4.5em ">
+        <center><font color="#1102bd">
+            <b>Контакты для заявок:</b><br>
+            <div class="phones-col">
+                +375 29 317-21-31 <br>
+                +375 29 708-16-58
+            </div>
+            <div class="phones-col">
+                +375 29 751-87-57 <br>
+                +375 17 399-23-09
+            </div>
+        </font>
+        </center>
+    </div>
+</div>
+<div class="div-after-head">
+
+    <div style="top: 6.15em; position: relative; z-index: 2; white-space: nowrap" align="center">
+        <ul class="menu">
+            <li><a href="{% url 'main' %}"> <b>Главная</b> </a></li>
+            <li><a href="{% url 'contacts' %}"> <b>Контакты</b></a></li>
+            <li><a href="{% if user.is_authenticated %}
+            {% url 'account' %}
+            {% else %}
+            {% url 'login' %}
+            {% endif %}"><b>Аккаунт</b></a></li>
+        </ul>
+    </div>
+    <h1 class="hello-text" align="center"><b>
+        {% block hello-text %} ВЕСЬ МИР - ДЛЯ ВАС {% endblock %}</b></h1>
+    <div class="categories-container" align="center">
+        <ul class="categories">
+            <li><a href="{% url 'aviatours_view' %}">
+                <img src="media/categories/airplain.png" style="width: 8.125em; cursor: pointer;"> </a></li>
+            <li><a href="{% url 'bus_tours' %}">
+                <img src="media/categories/bus.png" style="width: 8.125em;"> </a></li>
+            <li><a href="{% url 'cruises' %}">
+                <img src="media/categories/CRUISES.png" style="width: 8.125em;"> </a></li>
+            <li><a href="{% url 'mountains' %}">
+                <img src="media/categories/mountains.png" style="width: 8.125em;"> </a></li>
+            <li><a href="{% url 'tours_without_night_crossings' %}">
+                <img src="media/categories/olnyday.png" style="width: 8.125em;"> </a></li>
+            <li><a href="{% url 'sea_and_beach' %}">
+                <img src="media/categories/seaandbeach.png" style="width: 8.125em;"> </a></li>
+            <li><a href="{% url 'weekends' %}">
+                <img src="media/categories/WEEKEND.png" style="width: 8.125em;"></a></li>
+        </ul>
+    </div>
+
+    <img src="media/background/118.jpg" class="head-image">
+</div>
+
+<br>
+
+<div class="content-container">
+    {% block content %}
+
+    <div class="section" style="top: 43em;" align="center">
+        <img src="media/sections/top-tours100.png" style="width: 6em"><br>
+        <font size="6em"> <b> Популярные туры </b> </font>
+    </div>
+
+    <br>
+
+    <div class="top-tours" align="center">
+        <div class="top-tour">
+            <img src="media/tours/popular_tours/zatoka_Xa3jY0z.jpg" class="tour-picture">
+            <div class="square">
+                <font size="5em" class="tour-name"><b> Отдых в Затоке </b></font><br>
+                <button class="yellow-button" style="top: 6.5em"
+                        onclick="location.href='{% url 'tour_detail' pk=7 %}'"> Это интересно
+                </button>
+            </div>
+        </div>
+        <div class="top-tour">
+            <img src="media/tours/popular_tours/N-NXdd2F3XI_SpNYgtK.jpg" class="tour-picture">
+
+            <div class="square">
+                <font size="5em" class="tour-name"><b> Тур по Европе </b></font><br>
+                <button class="yellow-button" style="top: 6.5em"
+                        onclick="location.href='{% url 'tour_detail' pk=10 %}'"> Это интересно
+                </button>
+            </div>
+        </div>
+        <div class="top-tour">
+            <img src="media/tours/popular_tours/Выходные_на_Балтике_Клайпеда-Паланга.jpg" class="tour-picture">
+            <div class="square">
+                <font size="5em" class="tour-name"><b> Отдых на Балтике </b></font><br>
+                <button class="yellow-button" style="top: 6.5em"
+                        onclick="location.href='{% url 'tour_detail' pk=3 %}'"> Это интересно
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="discount" align="center">
+        <div class="discount-description">
+            <font size="8em" color="yellow" style="position: relative; z-index: 2; font-size:8em">
+                <b> 50% </b>
+            </font> <br>
+            <font size="8em" style="position: relative; z-index: 2;">
+                <b> СКИДКА </b>
+            </font> <br><br>
+            <p id="timer" style="font-size: 2em;"></p>
+            <font size="5em" style="position: relative; z-index: 2;">
+                <i> На тур по Европе<br>
+                    "Историческое путешествие"</i>
+            </font>
+        </div>
+        <img src="media/background/discount.jpg" style="z-index: 1;" align="center">
+    </div>
+
+    <br>
+
+    <div class="section" style="top: 135em;" align="center">
+        <img src="media/sections/fire.png" style="width: 6em"><br>
+        <font size="6em"> <b> Горящие туры </b> </font>
+    </div>
+
+    <br>
+
+    <img src="media/background/1.jpg" class="hot-tours-background">
+
+    <div class="hot-tours" align="center">
+        <div class="hot-tour">
+            <img src="media/tours/hot_tours/tunis_urcdpj9.jpeg" class="tour-picture">
+            <div class="square">
+                <font size="5em" class="tour-name"><b> 🔥 ТУНИС 🔥 </b></font><br>
+                <font size="4em" color="gray" class="tour-description"> LE ZENITH 3* </font> <br>
+                <button class="yellow-button" style="top: 6.5em"
+                        onclick="location.href='{% url 'tour_detail' pk=14 %}'"> Подробнее
+                </button>
+            </div>
+        </div>
+        <div class="hot-tour">
+            <img src="media/tours/hot_tours/SawXnquTZnw_76pK4W3.jpg" class="tour-picture">
+            <div class="square">
+                <font size="5em" class="tour-name"><b> 🔥 ТУРЦИЯ 🔥 </b></font><br>
+                <font size="4em" color="gray" class="tour-description"> SORGUN HOTEL 5* </font> <br>
+                <button class="yellow-button" style="top: 6.5em"
+                        onclick="location.href='{% url 'tour_detail' pk=13 %}'"> Подробнее
+                </button>
+            </div>
+        </div>
+        <div class="hot-tour">
+            <img src="media/tours/hot_tours/Marsa-Alam_i2CVD2m.jpg" class="tour-picture">
+            <div class="square">
+                <font size="5em" class="tour-name"><b> 🔥 ЕГИПЕТ 🔥 </b></font><br>
+                <font size="4em" color="gray" class="tour-description"> DIVE INN RESORT 4* </font> <br>
+                <button class="yellow-button" style="top: 6.5em"
+                        onclick="location.href='{% url 'tour_detail' pk=12 %}'"> Подробнее
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="section" style="top: 181.5em;" align="center">
+        <img src="media/sections/agreement.png" style="width: 6em"><br>
+        <font size="6em"> <b> Почему выбирают НатИн трэвэл? </b> </font>
+    </div>
+
+    <div class="wy-natin-travel" align="center">
+        <div class="reason">
+            <img src="media/wy_we/dynamism.png" style="width: 6em"><br>
+            <font size="4em" style="margin-bottom: 1.2em"><b>ДИНАМИЧНОСТЬ</b></font><br>
+            <center><font color="#474747" size="2em" style="">
+                Выбор тура на любой вкус: <br> пляжный отдых
+                или экскурсионный тур, <br> горнолыжный курорт
+                или морские круизы, <br> шоптуры или отдых в выходные, <br>
+                оздоровительные поездки и <br> СПА-туры для релакса<
+            </font>
+            </center>
+        </div>
+        <div class="reason">
+            <center><img src="media/wy_we/reability.png" style="width: 6em"><br>
+                <font size="4em" style="margin-bottom: 1.2em"><b>НАДЕЖНОСТЬ</b></font><br>
+                <font color="#474747" size="2em">
+                    Работа только с проверенными операторами
+                </font>
+            </center>
+        </div>
+        <div class="reason">
+            <center><img src="media/wy_we/competence.png" style="width: 6em"><br>
+                <font size="4em" style="margin-bottom: 1.2em"><b>КОМПЕТЕНТНОСТЬ</b></font><br>
+                <font color="#474747" size="2em">
+                    В нашей команде работают <br> профессиональные менеджеры. <br>
+                    Мы используем все возможные ресурсы, <br> чтобы
+                    турист получил объективную информацию <br>
+                    о туре, выбранном отеле или <br>
+                    маршруте, стране пребывания.
+                </font>
+            </center>
+        </div>
+        <br>
+        <div class="reason">
+            <center><img src="media/wy_we/support.png" style="width: 6em"><br>
+                <font size="4em" style="margin-bottom: 1.2em"><b>ПОДДЕРЖКА 24/7</b></font><br>
+                <font color="#474747" size="2em">
+                    Непрерывный контакт с туристами: <br>
+                    мы помогаем и консультируем. <br>
+                    В любое время, в поездке или на отдыхе,<br>
+                    мы остаемся на связи
+                </font>
+            </center>
+        </div>
+        <div class="reason">
+            <center><img src="media/wy_we/customer-focus.png" style="width: 6em"><br>
+                <font size="4em" style="margin-bottom: 1.2em"><b>КЛИЕНТОРИЕНТИРОВАННОСТЬ</b></font><br>
+                <font color="#474747" size="2em">
+                    Мы ориентируемся на интересы туриста.<br>
+                    В подборе тура учитываем пожелания, <br>
+                    предпочтения и бюджет
+                </font>
+            </center>
+        </div>
+        <div class="reason">
+            <center><img src="media/wy_we/honesty.png" style="width: 6em"><br>
+                <font size="4em" style="margin-bottom: 1.2em"><b>ОТКРЫТОСТЬ</b></font><br>
+                <font color="#474747" size="2em">
+                    Цены на туры без скрытых доплат. <br>
+                    Фиксируются на дату подписания договора
+                </font>
+            </center>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="section" style="top: 230em;" align="center">
+        <img src="media/sections/review100.png" style="width: 6em"><br>
+        <font size="6em"> <b> Отзывы о нас </b> </font> <br><br>
+        <font>Отзывы о нас можно оставить на сайтах:
+            <a href="https://www.holiday.by/agencies/natin/opinions">holiday.by</a>,
+            <a href="https://traveling.by/agencies/natin/otzyvy">traveling.by</a> и
+            <a href="https://ooo-natin-trevel.tam.by/otzyvy/">tam.by</a>.
+            А также в <a href="https://vk.com/natinforyou">нашей группе ВК</a> и
+            <a href="https://www.facebook.com/natin.for.you/">Facebook</a></font>
+    </div>
+
+    <br>
+
+    <img src="media/background/back-gallery.jpg" class="opinions-background" align="center">
+
+    <div class="opinions" align="center">
+        <div class="opinions-slideshow">
+            <div class="opinion">
+                <img src="media/opinions/anastasia_alania.jpg" style="width: 32em">
+            </div>
+            <div class="opinion">
+                <img src="media/opinions/natalia_egipet.jpg" style="width: 32em">
+            </div>
+            <div class="opinion">
+                <img src="media/opinions/natalia_albania1.jpg" style="width: 32em">
+            </div>
+            <div class="opinion">
+                <img src="media/opinions/Tatiana_italia.jpg" style="width: 32em">
+            </div>
+            <div class="opinion">
+                <img src="media/opinions/inna_vengria.jpg" style="width: 32em">
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="contact-container" align="center">
+        <font color="yellow" size="8em" style="position: relative; z-index: 2; top: 12em; left: -7.4em;">
+            <b> Написать нам: </b></font><br>
+        <div class="contact-form">
+            <form method="post" style="position: relative; top: 37em; left: -22em; z-index: 2;">
+                {% csrf_token %}
+                <table>
+                    <tr>
+                        <td style="">ФИО:</td>
+                        <td><input type="text" name="sender" style="width: 19em"></td>
+                    </tr>
+                    <tr>
+                        <td style="">E-mail:</td>
+                        <td><input type="text" name="email" style="width: 19em"></td>
+                    </tr>
+                    <tr>
+                        <td style="">Сообщение:</td>
+                        <td><textarea name="message" style="width: 24.5em"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td style="height: 3em; padding-top: 0.5em" colspan="2" align="center">
+                            <button type="submit" class="yellow-button">Отправить</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <img src="media/background/letsgo.jpg" style="z-index: 1; top: 228em;">
+    </div>
+    {% endblock %}
+</div>
+
+<script>
+var slideIndex = 0;
+showSlides();
+timer();
+
+function showSlides() {
+    var i;
+    var slides = document.getElementsByClassName("opinion");
+    for (i = 0; i < slides.length; i++) {
+       slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}
+    slides[slideIndex-1].style.display = "block";
+    setTimeout(showSlides, 10000);
+}
+
+function timer() {
+var countDownDate = new Date("Dec 18, 2020 22:00:00").getTime();
+var x = setInterval(function() {
+var now = new Date().getTime();
+var distance = countDownDate-now;
+var days = Math.floor(distance / (1000 * 60 *60 * 24));
+var hours = Math.floor((distance % (1000 * 60 * 60 *24)) / (1000 * 60 * 60));
+var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+document.getElementById("timer").innerHTML = days + " дн " + hours + " ч " + minutes + " мин " + seconds + " сек ";
+
+if (distance < 0) {
+clearInterval(x);
+document.getElementById("timer").innerHTML = "TIME IS OVER"
+}
+}, 1000);
+}
+
+
+</script>
+
+</body>
+</html>

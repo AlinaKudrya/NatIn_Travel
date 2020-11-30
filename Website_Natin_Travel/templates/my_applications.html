@@ -1,0 +1,19 @@
+{% extends 'account.html' %}
+{% block title %} Аккаунт | Мои заказы  {% endblock %}
+
+
+{% block content %}
+
+<table width="90%" align="center">
+    {% for application in applications %}
+    {% if user.is_authenticated and user == application.username %}
+    <tr style="height: 7em; background-color: #ededed" align="center">
+        <td style="width: 9em"> {{ application.date }}</td>
+        <td style="width: 21em"> {{ application.tour_title }}</td>
+        <td style="width: 5em"> ✓</td>
+    </tr>
+    {% endif %}
+    {% endfor %}
+</table>
+
+{% endblock %}

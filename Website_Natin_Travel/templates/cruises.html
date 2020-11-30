@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %} 🚢 Морские круизы | НатИн трэвэл {% endblock %}
+{% block hello-text %}  МОРСКИЕ КРУИЗЫ {% endblock %}
+
+{% block content %}
+
+<div class="tours" style="position: absolute; top: 45em; width: 100%;" align="center">
+    <table style="border-collapse: collapse">
+        {% for cruise in cruises %}
+        <tr>
+            <td rowspan="2" style="border-bottom: 3em solid #fcfcfc">
+                <a href="{% url 'tour_detail' pk=cruise.pk %}">
+                    <img src="{{ cruise.image.url }}" style="width: 25em">
+                </a>
+            </td>
+            <td style="padding-left: 2em; padding-bottom: 1.2em;  background-color: #F6F6F6">
+                <p>
+                    <font style="font-size: 2em">
+                        <a href="{% url 'tour_detail' pk=cruise.pk %}" style="color: black;">
+                            {{ cruise.title }}
+                        </a>
+                    </font>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 45em; padding-left: 2em; border: 0;
+            vertical-align: top;  background-color: #F6F6F6; border-bottom: 3em solid #fcfcfc">
+                Страна: {{ cruise.country }} <br><br>
+                Цена: {{ cruise.price }}{{ cruise.currency }} <br>
+                <font style="white-space: pre-line">
+                    {{ cruise.short_description }} </font>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}

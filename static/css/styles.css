@@ -1,0 +1,261 @@
+body {
+background-color: #fcfcfc;
+white-space: nowrap;
+}
+
+textarea {
+height: 25em;
+width: 25.5em;
+resize: none;
+}
+
+.name {
+display: inline-block;
+margin-left: 0.5em;
+margin-top: 0;
+left: -4.5em;
+position: relative;
+top:-0.6em;
+}
+
+.addresses {
+display: inline-block;
+position: relative;
+top:-0.4em;
+left:
+}
+
+.phones-col {
+display: inline-block;
+}
+
+.menu, .categories, {
+margin: 0;
+padding: 0;
+list-style-type:  none;
+}
+
+.menu li, .categories li, li {
+display: inline;
+}
+
+.menu li > a {
+text-decoration: none;
+border-right: none;
+border-left: none;
+border-top: 0.125em solid #1102bd;
+border-bottom: 0.125em solid #1102bd;
+width: 3.4em;
+height: 3.4em;
+color: #1102bd;
+background-color: transparent;
+margin: 0.6em;
+padding: 0.7em 1em;
+font-size: 1.1em;
+text-align: center;
+cursor: pointer;
+}
+
+.menu li > a:hover{
+opacity: 0.7;
+background-color: #1102bd;
+color: yellow;
+}
+
+.categories-container {
+height: 10em;
+top: 27em;
+position: relative;
+z-index: 2;
+white-space: nowrap;
+}
+
+.categories li > a {
+background-color: transparent;
+border: none;
+cursor: pointer;
+text-decoration: none;
+}
+
+.categories li > a > img:hover {
+transform: translateY(-1em);
+transition: 0.4s;
+}
+
+.categories li > a > img:not(:hover) {
+transform: translateY(+1em);
+transition: 0.4s;
+}
+
+.hello-text {
+margin: -0.8em;
+position: relative;
+z-index: 2;
+font-size: 2.5em;
+color: #1102bd;
+top: 7em;
+}
+
+.head-image {
+top: 6.25em;
+position: absolute;
+z-index: 1;
+width: 100%;
+height: 35em;
+margin-bottom: 5em;
+}
+
+.section {
+width: 100%;
+z-index: 2;
+position: absolute;
+}
+
+.yellow-button {
+background-color: yellow;
+border: 0;
+width: 9em;
+height: 2em;
+text-size: 1em;
+border-radius: 0.8em;
+cursor: pointer;
+color: black;
+position: relative;
+z-index: 3;
+}
+
+.yellow-button:hover {
+background-color: blue;
+color: white;
+}
+
+.top-tours {
+top: 54.5em;
+width: 100%;
+height: 33em;
+position: absolute;
+z-index: 2;
+}
+
+.top-tour {
+display: inline-block;
+margin-right: 2.2em;
+z-index: 2;
+}
+
+.top-tour: last-child {
+margin-right: 2.2em;
+}
+
+.tour-picture {
+width: 19em;
+position: relative;
+}
+
+.tour-name{
+position: relative;
+top: 1em;
+}
+
+.tour-description {
+position: relative;
+top: 2em;
+}
+
+.discount {
+top: 56em;
+width: 100%;
+height: 35em;
+position: absolute;
+}
+
+.discount-description {
+top: 40em;
+left: 19em;
+height: 35em;
+width: 35em;
+position: relative;
+}
+
+.hot-tours {
+top: 146em;
+width: 100%;
+height: 33em;
+position: absolute;
+z-index: 2;
+white-space: nowrap;
+}
+
+.hot-tour {
+display: inline-block;
+margin-right: 2.2em;
+z-index: 2;
+}
+
+.hot-tours-background {
+z-index: 1;
+width: 100%;
+height: 45em;
+top: 140em;
+position: absolute
+}
+
+.square {
+width: 19em;
+height: 12em;
+background-color: white;
+top: -1em;
+position: relative;
+}
+
+.wy-natin-travel {
+width: 100%;
+height: 80em;
+top: 194em;
+position:absolute;
+}
+
+.reason {
+width: 21em;
+height: 18em;
+display: inline-block;
+margin-right: 2.5em;
+vertical-align: top;
+}
+
+.miniature {
+background-size: contain;
+display: inline-block;
+width: 5em;
+height: 5em;
+}
+
+.slides {display: none;}
+
+.opinions {
+top: 245em;
+width: 100%;
+height:  35em;
+position: absolute;
+}
+
+.opinions-slideshow{
+position: relative;
+z-index: 2;
+}
+
+.opinions-background{
+z-index: 1;
+position: absolute;
+top: 238em;
+width: 100%;
+height: 45em;
+}
+
+.contact-container {
+top: 253em;
+width: 100%;
+height: 35em;
+position: absolute;
+}
+

@@ -1,0 +1,63 @@
+{% load static %}
+<head>
+    <link rel="stylesheet" href='{% static "css/second-styles.css" %}'/>
+    <title> Программа тура: {{ tour.title }} </title>
+</head>
+<body style="background-color: #9F9F9F">
+<div style="position: absolute; width: 100%;" align="center">
+    <div class="tour-detail" style="width: 60em;
+    height: auto;
+    background-color: white;
+    border-style: solid;
+    border-width: 2em;
+    border-color: white;
+    overflow: auto;">
+        <div style="display: inline">
+            <img src="media/background/logo.png"
+                 style="width:3em;  margin-right: 0.5em; cursor: pointer"
+                 align="left" title="Вернуться на главную страницу">
+            <p style="font-size:1em; position:relative" align="left">
+                <i>НатИн трэвэл</i></p>
+        </div>
+        <hr size="1em" color="black">
+        <br>
+        <table>
+            <tr>
+                <td rowspan="2" style="border-bottom: 2em solid white;  width: 30em">
+                    <img src="{{ tour.image.url }}" style="width: 30em; margin-left: 1em;" align="left">
+                </td>
+                <td style="padding-left: 2em; padding-bottom: 1.2em; height: auto">
+                    <font style="font-size: 2em">
+                        <b>
+                            {{ tour.title }}
+                        </b>
+                    </font>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-left: 2em; border-bottom: 2em solid white">
+                    <font style="font-size: 1.5em"> Страна: {{ tour.country }} </font><br><br>
+                    <font style="font-size: 1.5em"> Цена: {{ tour.price }}{{ tour.currency }}</font>
+                    <br><br>
+                    <div>
+                        <button class="yellow-button" onclick="location.href='{% url 'application' pk=tour.pk %}'">
+                            Заказать
+                        </button>
+                        <form method="post" style="display: inline-block">
+                            {% csrf_token %}
+                            <button type="submit" class="yellow-button"> В избранное ❤ </button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <hr size="1em" color="black">
+                    <br>
+                    <font style="white-space: pre-line">{{ tour.description }}</font>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>

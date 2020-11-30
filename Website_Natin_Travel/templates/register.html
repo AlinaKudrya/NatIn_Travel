@@ -1,0 +1,32 @@
+{% extends 'login.html' %}
+
+{% block title %} Регистрация | НатИн трэвэл {% endblock %}
+
+{% block form %}
+
+        <div class="logo">
+            <img src="media/background/logo.png" style="width: 5em;">
+        </div>
+<font style="font-size: 2.5em; text-align: center;" color="#1102bd">Регистрация</font>
+<form action="{% url 'register' %}" method="post">
+    {% csrf_token %}
+            <br><br>
+    <table>
+        <tr>
+            <td style="width: 10em"> Логин:</td>
+            <td>{{ form.username }}</td>
+        </tr>
+        <tr>
+            <td> Пароль:</td>
+            <td>{{ form.password1 }}</td>
+        </tr>
+        <tr>
+            <td> Повторно пароль:</td>
+            <td>{{ form.password2 }}</td>
+        </tr>
+    </table>
+            <br>
+            <br>
+    <button type="submit" class="yellow-button"> Регистрация</button>
+</form>
+{% endblock %}

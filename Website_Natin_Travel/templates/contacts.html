@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+{% block title %} Контакты | НатИн трэвэл {% endblock %}
+{% block hello-text %} КОНТАКТЫ {% endblock %}
+
+{% block content %}
+<div class="section" style="top: 43em;" align="center">
+    <img src="media/sections/welcome.png" style="width: 6em"><br>
+    <font size="6em"> <b> Приветствуем путешественников! </b> </font>
+</div>
+<div class="tourist-greeting" style="top: 53em; position: absolute; width: 100%;" align="center">
+    <center>
+        <font style="font-size: 0.8em">
+            Добро пожаловать на сайт туристического агентства Натин трэвэл.
+            Мы работаем, чтобы отдых каждого путешественника <br> был наполнен впечатлений.
+            В работе используются ресурсы, с помощью которых
+            наш клиент получает всю объективную
+            информацию о туре, <br>отеле или маршруте, стране пребывания. <br>Сотрудничество с
+            крупными и надежными операторами. <br>Натин трэвэл - за выгодный отдых!
+        </font>
+        <br>
+        <br>
+        <font size="2em">
+            Поддержка связи с нашими клиентами 24/7.
+            Используются любые возможности чтобы отдых оставил массу положительных <br>
+            эмоций и потрясающих фото.
+            Свяжитесь с нами по телефону, e-mail или подъезжайте в офис - <br>
+            наши менеджеры подбирают персональный
+            отдых для всех!
+        </font>
+    </center>
+</div>
+
+<div class="section" style="top: 68em;" align="center">
+    <img src="media/sections/call.png" style="width: 6em"><br>
+    <font size="6em"> <b> Контактная информация </b> </font>
+</div>
+
+<div class="contact-information" align="center" style="top:80em; position: absolute; width: 100%; height: 10em">
+    <div style="display: inline-block; width: 15em; margin-right: 5em; vertical-align: top; align: center;">
+        <img src="media/contacts/gps.png" style="width: 6em"><br>
+        <b>22123, г. Минск <br>
+            ул. М. Богдановича, 129а, <br> офис 18</b>
+    </div>
+    <div style="display: inline-block; width: 15em; margin-right: 5em; vertical-align: top; align: center;">
+        <img src="media/contacts/phone.png" style="width: 6em"><br>
+        +375 17 399-23-09<br>
+        +375 29 317-21-31 <b>A1</b><br>
+        +375 29 751-87-57 <b>MTS</b><br>
+        +375 29 708-16-58 <b>MTS</b>
+    </div>
+    <div style="display: inline-block; width: 15em; vertical-align: align: center;">
+        <img src="media/contacts/email.png" style="width: 6em"><br>
+        <b>info@natin.by</b>
+    </div>
+    <br> <br>
+    <img src="media/contacts/time.png" style="position: relative; top: 0.5em;"> <b>Время работы: ПН-ПТ с 10.00 по
+    18.00</b>
+</div>
+<div class="map" style="position: absolute; top: 97em; width: 100%; height: 34em;" align="center">
+    <table>
+        <tr>
+            <td><img src="media/contacts/map.png" style="width: 40em;"></td>
+            <td>
+                <div class="contact-form" style="margin-left: 1em;">
+                    <form method="post" action="contacts">
+                        {% csrf_token %}
+                        <table>
+                            <tr>
+                                <td style="">ФИО:</td>
+                                <td><input type="text" name="sender" style="width: 19em"></td>
+                            </tr>
+                            <tr>
+                                <td style="">E-mail:</td>
+                                <td><input type="text" name="email" style="width: 19em"></td>
+                            </tr>
+                            <tr>
+                                <td style="">Сообщение:</td>
+                                <td><textarea name="message" style="width: 24.5em"></textarea></td>
+                            </tr>
+                            <tr>
+                                <td style="height: 3em; padding-top: 0.5em" colspan="2" align="center">
+                                    <button type="submit" class="yellow-button">Отправить</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <font color="#B9B9B9">
+        Сведения о компании:<br>
+        Общество с ограниченной ответственностью "НатИн трэвэл" (ООО "НатИн трэвэл")<br>
+        ул. М. Богдановича, 129а, офис 18, 22123, г. Минск<br>
+        Тел./Факс.: +375 17 399-23-09<br>
+        УНП 192977141<br>
+        р/сBY65MTBK30120001093300085910<br>
+        ЗАО «МТБанк», РКЦ «Фаренгейт»,<br>
+        ул. Притыцкого, 79, г.Минск,<br>
+        БИК MTBKBY22<br>
+        Свидетельство о государственной регистрации от 02.10.2017 №192977141<br>
+        Руководство:<br>
+        Директор: Кудревич Инна Михайловна<br>
+        +375 29 751-87-57<br>
+        Заместитель директора по коммерческим вопросам: Буханевич Наталья Вячеславовна<br>
+        +375 29 708-16-58
+    </font>
+</div>
+{% endblock %}

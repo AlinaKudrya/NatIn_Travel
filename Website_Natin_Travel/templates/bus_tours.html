@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %} 🚌 Автобусные туры | НатИн трэвэл {% endblock %}
+{% block hello-text %} АВТОБУСНЫЕ ТУРЫ {% endblock %}
+
+{% block content %}
+
+<div class="tours" style="position: absolute; top: 45em; width: 100%;" align="center">
+    <table style="border-collapse: collapse">
+        {% for bus_tour in bus_tours %}
+        <tr>
+            <td rowspan="2" style="border-bottom: 3em solid #fcfcfc">
+                <a href="{% url 'tour_detail' pk=bus_tour.pk %}">
+                    <img src="{{ bus_tour.image.url }}" style="width: 25em">
+                </a>
+            </td>
+            <td style="padding-left: 2em; padding-bottom: 1.2em;  background-color: #F6F6F6">
+                <p>
+                    <font style="font-size: 2em">
+                        <a href="{% url 'tour_detail' pk=bus_tour.pk %}" style="color: black;">
+                            {{ bus_tour.title }}
+                        </a>
+                    </font>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 45em; padding-left: 2em; border: 0;
+            vertical-align: top;  background-color: #F6F6F6; border-bottom: 3em solid #fcfcfc">
+                Страна: {{ bus_tour.country }} <br><br>
+                Цена: {{ bus_tour.price }}{{ bus_tour.currency }} <br>
+                <font style="white-space: pre-line">
+                    {{ bus_tour.short_description }} </font>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'login.html' %}
+
+{% block title %} ✓ Оставить заявку | НатИн трэвэл {% endblock %}
+
+{% block form %}
+<form method="post" action="{% url 'application' pk=tour.pk %}">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <td style="width: 11em; height: 3em">Заявка на тур:</td>
+            <td><input type="text" name="tour_title" id="tour_title" value="{{ tour.title }}"
+                       style="width: 20em" readonly></td>
+        </tr>
+    {% if user.is_authenticated %}
+    {% for information in my_information %}
+        <tr>
+            <td style="width: 11em; height: 3em">ФИО:</td>
+            <td><input type="text" name="name" value="{{ information.name }}"
+                       style="width: 20em"></td>
+        </tr>
+        <tr>
+            <td style="width: 11em; height: 3em">Номер телефона:</td>
+            <td><input type="text" name="phone" value="{{ information.phone }}"
+                       style="width: 20em"></td>
+        </tr>
+        <tr>
+            <td style="width: 11em; height: 3em">Дополнительно:</td>
+            <td><textarea name="additionally" style="width: 24.5em"></textarea></td>
+        </tr>
+        <tr>
+            <td style="width: 11em; height: 3em; padding-top: 1.8em" colspan="2" align="center">
+                <input type="submit" value="Отправить" class="yellow-button"
+                       onclick="alert('Заявка принята!')"/>
+            </td>
+        </tr>
+    {% endfor %}
+    {% else %}
+        <tr>
+            <td style="width: 11em; height: 3em">ФИО:</td>
+            <td><input type="text" name="name" id="name" style="width: 20em"></td>
+        </tr>
+        <tr>
+            <td style="width: 11em; height: 3em">Номер телефона:</td>
+            <td><input type="text" name="phone" id="phone" style="width: 20em"></td>
+        </tr>
+        <tr>
+            <td style="width: 11em; height: 3em">Дополнительно:</td>
+            <td><textarea name="additionally" id="additionally" style="width: 24.5em"></textarea></td>
+        </tr>
+        <tr>
+            <td style="width: 11em; height: 3em; padding-top: 1.8em" colspan="2" align="center">
+                <input type="submit" value="Отправить" class="yellow-button"
+                       onclick="alert('Заявка принята!')"/>
+            </td>
+        </tr>
+    {% endif %}
+    </table>
+</form>
+{% endblock %}

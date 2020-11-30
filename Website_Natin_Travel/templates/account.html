@@ -1,0 +1,66 @@
+{% load static %}
+<head>
+    <link rel="stylesheet" href='{% static "css/second-styles.css" %}'/>
+    <title> {% block title %} Аккаунт | НатИн трэвэл {% endblock %} </title>
+</head>
+<body style="background-color: #9F9F9F">
+<div style="position: absolute; width: 100%;" align="center">
+    <div class="tour-detail" style="width: 60em;
+    height: auto;
+    background-color: white;
+    border-style: solid;
+    border-width: 2em;
+    border-color: white;
+    overflow: auto;">
+        <div>
+            <img src="media/background/logo.png"
+                 style="width: 5em; margin-right: 2em; cursor: pointer; position: relative; top: -1em"
+                 align="left" title="Вернуться на главную страницу" onclick="location.href='{% url 'main' %}'">
+            <p style="font-size:2em;" align="left">
+                <i> Персональные данные - {{request.user}}</i></p>
+        </div>
+        <hr size="1em" color="black">
+        <div style="width: 100%; height:3.6em; background-color: #1102bd; overflow: auto;">
+            <ul class="login-menu">
+                <li><a href="{% url 'account' %}" class="login-menu-link" style="font-size:1.3em;"> Мои данные </a></li>
+                <li><a href="{% url 'featured-tours' %}" class="login-menu-link" style="font-size:1.3em;">
+                    Избранное </a></li>
+                <li><a href="{% url 'my-applications' %}" class="login-menu-link" style="font-size:1.3em;"> Мои
+                    заказы </a></li>
+                <li><a href="{% url 'logout' %}" class="login-menu-link" style="font-size:1.3em;">
+                    🚪 Выйти </a></li>
+            </ul>
+        </div>
+        <hr size="1em" color="black">
+        {% block content %}
+        <div style="margin-top: 1.5em">
+            <form method="post">
+                {% csrf_token %}
+                {% for information in my_information %}
+                {% if user.is_authenticated and user == information.username %}
+                <table>
+                    <tr>
+                        <td style="width: 10em; height: 3em">ФИО:</td>
+                        <td><input type="text" name="name" id="name" value="{{ information.name }}"
+                                   style="width: 30em"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 10em; height: 3em">E-mail:</td>
+                        <td><input type="text" name="email" id="email" value="{{ information.email }}"
+                                   style="width: 30em"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 10em; height: 3em">Номер телефона:</td>
+                        <td><input type="text" name="phone" id="phone" value="{{ information.phone }}"
+                                   style="width: 30em"></td>
+                    </tr>
+                </table>
+                <input type="submit" value="Сохранить" class="yellow-button"/>
+                {% endif %}
+                {% endfor %}
+            </form>
+        </div>
+        {% endblock %}
+    </div>
+</div>
+</body>

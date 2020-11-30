@@ -1,0 +1,50 @@
+a {
+text-decoration: none;
+color: #1500D1;
+}
+
+.login-menu{
+list-style-type:  none;
+}
+
+.login-menu li {
+display: inline;
+}
+
+.login-menu li > a {
+text-decoration: none;
+border-right: none;
+border-left: none;
+border-top: 0.125em solid #1102bd;
+border-bottom: 0.125em solid #1102bd;
+width: 3.4em;
+height: 3.4em;
+color: white;
+background-color: #1102bd;
+padding: 0.7em 2em;
+font-size: 1.1em;
+text-align: center;
+cursor: pointer;
+}
+
+.login-menu li > a:hover{
+color: yellow;
+}
+
+.yellow-button {
+background-color: yellow;
+border: 0;
+width: 9em;
+height: 2em;
+text-size: 1em;
+border-radius: 0.8em;
+cursor: pointer;
+color: black;
+position: relative;
+margin-top:1em;
+}
+
+.yellow-button:hover {
+background-color: blue;
+color: white;
+}
